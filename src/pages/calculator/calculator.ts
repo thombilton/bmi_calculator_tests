@@ -18,6 +18,7 @@ export class CalculatorPage {
   weight: number;
   bmiValue: number;
   bmiMessage: string;
+  testData: number = 100;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
