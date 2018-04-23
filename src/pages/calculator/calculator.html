@@ -18,16 +18,14 @@
   <ion-list>
     <ion-item>
       <ion-label floating>Weight (kg)</ion-label>
-      <ion-input type="number" [(ngModel)]="weight"></ion-input>
+      <ion-input type="number" [(ngModel)]="weight" (ionChange)="calculateBMI()"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Height (cm)</ion-label>
-      <ion-input type="number" [(ngModel)]="height" value="{{testData}}"></ion-input>
+      <ion-input type="number" [(ngModel)]="height" (ionChange)="calculateBMI()"></ion-input>
     </ion-item>
   </ion-list>
   <div padding>
-    <button block ion-button
-            (click)="calculateBMI()">Calculate</button>
   </div>
 
   <ion-card *ngIf="bmiValue">

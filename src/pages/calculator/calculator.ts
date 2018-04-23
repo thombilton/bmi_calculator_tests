@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Events} from 'ionic-angular';
+import {HeightConverterPage} from "../height-converter/height-converter";
 
 /**
  * Generated class for the CalculatorPage page.
@@ -18,9 +19,8 @@ export class CalculatorPage {
   weight: number;
   bmiValue: number;
   bmiMessage: string;
-  testData: number = 100;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events:Events) {
   }
 
   calculateBMI() {
@@ -51,7 +51,13 @@ export class CalculatorPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CalculatorPage');
+
+    this.events.subscribe('heightCalc', (data) =>{
+      console.log(data);
+      this.height = data.cm;
+    });
   }
+
+
 
 }
